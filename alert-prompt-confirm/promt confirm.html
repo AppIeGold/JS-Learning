@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo">1</p>
+        <button type="button" onclick="demo1()">click</button>
+        <script>
+            let boss = confirm('Переходя на этот сайт вы подтверждаете что вы крутой?')
+            let age = prompt('Сколько тебе лет?' ,);
+            console.log(age);
+            alert(`тебе ${age} лет!`);
+            let ages = prompt('Сколько тебе лет?' ,);
+            console.log(ages);
+            alert( ages >= 20);
+            console.log( ages >= 20);
+
+            function demo1() {
+                document.getElementById("demo").innerHTML = `тебе ${age} лет!`;
+            }
+        </script>
+    </body>
+</html>

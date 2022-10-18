@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-image:url('back.jpg')">
+        <h1>Web page</h1>
+        <p id="demo">A Paragraph</p>
+        <button type="button" onclick="MyFunction()">try it</button>
+        <button type="button" onclick="MyFunction1()">reverse</button>
+        <script>
+            function MyFunction() {
+                document.getElementById('demo').innerHTML = "changed text.";
+            }
+            function MyFunction1() {
+                document.getElementById('demo').innerHTML = "A Paragraph";
+            }
+        </script>
+    </body>
+</html>

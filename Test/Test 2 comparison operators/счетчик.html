@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <body  style="font-size:larger ;">
+        <p>выберите 1 2 3</p>
+        <p id="2"></p>
+        <button type="button" onclick="yes(); tru() ">1</button>
+        <button type="button" onclick="yes()">2</button>
+        <button type="button" onclick="yes()">3</button>
+        <button type="button" onclick="not()">4</button>
+        <button type="button" onclick="not()">5</button>
+        <button type="button" onclick="not()">6</button>
+            <script>
+                let a =0;
+                function yes() {
+                    document.getElementById("1").innerHTML = a += 1;
+                    console.log(a);
+                }
+                function not() {
+                    document.getElementById("1").innerHTML = a -= 1;
+                    console.log(a);
+                }
+                function tru() {
+                    document.getElementById("2").innerHTML = 'верно';
+                    console.log(a);
+                }
+            </script>
+          <p>Количество баллов: <b id="1">0</b></p>  
+    </body>
+</html>
