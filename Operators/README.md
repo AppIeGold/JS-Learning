@@ -57,11 +57,38 @@
 <p>- typeof x</p>
 <p>- typeof(x)</p>
 <p>Нет разницы в использовании со скобакми и без.</p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
-<p></p>
+
+<H2>Logical operators</H2>
+<p>JS have 4 logical operators ||(or), &&(and), !(not), ??(operator )</p>
+
+<H3>||(OR)</H3>
+<p>There are four possible logical combinations</p>
+<p>(true||true)</p>
+<p>(true||false)</p>
+<p>(false||true)</p>
+<p>(false||false)</p>
+<p>For each operand, converts it to boolean. if the result is <b>true</b>, stops and returns the original value of that operand. If all operands have been <b>false</b>, returns the last operand</p>
+
+<H3>&& (AND)</H3>
+<p>in classical programming AND return <b>true</b> if both operands are truphy and <b>false</b> otherwise.</p>
+<p>(true&&true) = true</p>
+<p>(true&&false) = false</p>
+<p>(false&&true) = false</p>
+<p>(false&&false) = false</p>
+<p>&&(AND) finds the first falsy value</p>
+<p><p>For each operand, converts it to boolean. if the result is <b>false</b>, stops and returns the original value of that operand. If all operands have been <b>true</b>, returns the last operand</p></p>
+<h3>important</h3>
+<p>Precedence of <b>&&(AND)</b> is higher than <b>||(OR)</b></p>
+<p>a && b || c && d == (a && b) || (c && d)</p>
+
+<H3>!(NOT)</H3>
+<p>This operator accepts a single argument and does the following:</p>
+<p>1. Converts th operand to boolean type.</p>
+<p>2. Returns the inverse value.</p>
+<p>A Double NOT is sometimes used for converting a value to boolean type.</p>
+<p>The precedence of NOT ! is the highest of all logical operators, so it always executes first, before && or ||.</p>
+
+<H3>Nullish coalescing operator ??</H3>
+<p>As it treats <b>null</b> and <b>undefined</b> similarly, we’ll use a special term here, in this article. For brevity, we’ll say that a value is “defined” when it’s neither null nor undefined. In other words, ?? returns the first argument if it’s not <b>null/undefined</b>. Otherwise, the second one.</p>
+<p>Operator <b>AND</b> doesn’t distinguish between false, 0, an empty string "" and null/undefined. They are all the same – falsy values. If any of these is the first argument of <b>AND</b>, then we’ll get the second argument as the result.</p>
+<p>The precedence of the ?? operator is the same as ||. They both equal 3 in the MDN table. That means that, just like ||, the nullish coalescing operator ?? is evaluated before = and ?, but after most other operations, such as +, *.</p>

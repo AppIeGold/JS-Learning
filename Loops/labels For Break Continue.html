@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            let a = 0;
+            let b = 0;
+            let c = 0;
+            let d = 0;
+            let e = 0;
+            let f = 0;
+            let g = 0;
+            let h = 0;
+            let k = 0;
+
+            outer: for(var i = 0; i < 3; i++) {
+                console.log(`Переменная i = ${i}`);;
+                for(var j = 0; j < 3; j++) {
+                    console.log(`Переменная J = ${j}`);
+                    var input = prompt(`Value at coords (${i},${j})`, '');
+                    
+                    a == 0 ? a = input :
+                    b == 0 ? b = input :
+                    c == 0 ? c = input :
+                    d == 0 ? d = input :
+                    e == 0 ? e = input :
+                    f == 0 ? f = input :
+                    g == 0 ? g = input :
+                    h == 0 ? h = input :
+                    k = input;
+            
+                    //if (a == 0) {
+                    //    a = input;
+                    //} else if (b == 0) {
+                    //    b = input;
+                    //} else if (c == 0) {
+                    //    c = input; 
+                    //} else if (d == 0) {
+                    //    d = input;
+                    //} else if (e == 0) {
+                    //    e = input;
+                    //} else if (f == 0) {
+                    //    f = input;
+                    //} else if (g == 0) {
+                    //    g = input;
+                    //} else if (h == 0) {
+                    //    h = input;
+                    //} else k = input;
+
+                    console.log(`Переменная input = ${input}`);
+                    if (!input) continue outer;
+                } 
+                console.log(a, b, c, d, e, f, g, h, k);
+            }
+
+           //console.log(a, b, c, d, e, f, g, h, k);
+            alert('done!');
+            
+        </script>
+    </body>
+</html>
