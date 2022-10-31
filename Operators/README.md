@@ -88,7 +88,7 @@
 <p>A Double NOT is sometimes used for converting a value to boolean type.</p>
 <p>The precedence of NOT ! is the highest of all logical operators, so it always executes first, before && or ||.</p>
 
-<H3></H3>
-<p></p>
-<p></p>
-<p></p>
+<H3>Nullish coalescing operator ??</H3>
+<p>As it treats <b>null</b> and <b>undefined</b> similarly, we’ll use a special term here, in this article. For brevity, we’ll say that a value is “defined” when it’s neither null nor undefined. In other words, ?? returns the first argument if it’s not <b>null/undefined</b>. Otherwise, the second one.</p>
+<p>Operator <b>AND</b> doesn’t distinguish between false, 0, an empty string "" and null/undefined. They are all the same – falsy values. If any of these is the first argument of <b>AND</b>, then we’ll get the second argument as the result.</p>
+<p>The precedence of the ?? operator is the same as ||. They both equal 3 in the MDN table. That means that, just like ||, the nullish coalescing operator ?? is evaluated before = and ?, but after most other operations, such as +, *.</p>
