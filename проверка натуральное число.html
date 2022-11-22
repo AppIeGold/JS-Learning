@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <p id="demo"></p>
+        <button type="button" onclick="document.getElementById('demo').innerHTML = pow()">click</button>
+
+        <script>
+            let a = 5.1;
+            let b = a + 1;
+            back: for (let i = 1; i <= b; i++) {
+                console.log(i);                              
+                console.log(a);                              
+                if (i == a) break;
+                else if (i > a && i < b) console.log(false); 
+                else continue back;                             
+            }  
+        </script>
+    </body>
+</html>
