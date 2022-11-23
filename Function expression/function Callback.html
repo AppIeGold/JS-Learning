@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            function ask(question, yes, no) {
+                if (confirm(question)) yes()
+                else no();
+            }
+
+            ask(
+                'You confirm?', 
+                function() { console.log('You confirm'); },
+                function() { console.log('You canceled move'); }              
+                );
+
+        </script>
+    </body>
+</html>

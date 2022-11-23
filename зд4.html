@@ -3,18 +3,21 @@
     <body>
         <p id="demo"></p>
         <button type="button" onclick="document.getElementById('demo').innerHTML = pow()">click</button>
+
         <script>
+            'use strict';
+
             function pow() {
                 let a = +prompt('input value one', '');
                 let b = +prompt('input value one', '');
                 
                 if (!checkNaturalNumber(a) || 
                 !checkNaturalNumber(b)) return false;
-                else return a ** b;    
+                else return a ** b;
 
                 function checkNaturalNumber(num1) {
                     let b = num1 + 1;
-                    back: for (let i = 1; i <= num1; i++) {               
+                    back: for (let i = 1; i <= num1; i++) {        
                         if (i == num1) return true;
                         else if (i > num1 && i < b) return false;
                         else continue back;
