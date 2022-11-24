@@ -10,20 +10,12 @@
             let a = prompt('input', '');                        
             let b = prompt('input 2', '');
 
-            let pow = (!checkNaturalNumber(a) ||
-            !checkNaturalNumber(b)) ? () => a ** b : false;
+            let pow = (checkNaturalNumber(a) &&
+            checkNaturalNumber(b)) ? () => a ** b : () => false;
 
             function checkNaturalNumber(num1) {
-                let c = num1 + 1;
-                !checkInside(c, num1) ? false : true;
-
-                function checkInside(d, e) {
-                    for (let i = 1; i <= e; i++) {        
-                        if (i == e) return true;
-                        else  if (i > e && i < d) return false;
-                    }
-                }
-            }            
+                if (num1 % 1 == 0 && num1 >= 1) return true;
+            }
         </script>
     </body>
 </html>
