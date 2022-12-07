@@ -88,6 +88,78 @@ function(name) {
 let Vasya = function() {
     console.log(`hello ${Vasya}!`);
 };</code></pre>
+    Еще одна особенность <b>Function Declaration</b> заключается в том, что я ее область видимости ограничена блоком кода, в котором она располагается. Ниже будут примеры одного и того же результата, полученного разными способами.
+    <pre><code class="lang-js">let age = prompt('What are your old?' '');
+
+if (age >= 18) {
+    function welcome() {
+        console.log('Greetings!');
+    }
+    welcome();
+} else {
+    function welcome() {
+        console.log('hello!');
+    }
+    welcome();
+}</code></pre>
+    <pre><code class="lang-js">let age = prompt('What are your old?' '');
+
+let welcome;
+
+if (age >= 18) {
+    welcome = function() {
+        console.log('Greetings!');
+    };
+} else {
+    welcome = function() {
+        console.log('hello!');
+    };
+}</code></pre>
+    <pre><code class="lang-js">let age = prompt('What are your old?' '');
+
+let welcome = (age >= 18) ?
+    function() {console.log(Greetings!); } :
+    function() {console.log(hello!); };
+
+welcome();</code></pre>
     </p>
+    <hr>
+    <h3>Важно</h3>
+    <p>Если нам понадобилась функция, в первую очередь необходимо рассматривать <b>Function Declaration</b>. Он дает больше свободы в организации кода.
+    </p>
+    <hr>
+    <h2>Итог</h2>
+    <ul>
+        <li>Функции – это значения. Они могут быть присвоены, скопированы или объявлены в любом месте кода.</li>
+        <li>Если функция объявлена как отдельная инструкция в основном потоке кода, то это “Function Declaration”.</li>
+        <li>Если функция была создана как часть выражения, то это “Function Expression”.</li>
+        <li>Function Declaration обрабатываются перед выполнением блока кода. Они видны во всём блоке.</li>
+        <li>Функции, объявленные при помощи Function Expression, создаются только когда поток выполнения достигает их.</li>
+    </ul>
+    <hr>
+    <pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </pre>
     </body>
 </html>

@@ -1,0 +1,26 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>block scope</title>
+</head>
+
+<body>
+    <script>
+        let age = prompt('what are your old?', '');
+
+        let welcome;
+
+        if (age >= 18) {
+            welcome = function() {
+                console.log('Greetings!');
+            }
+        } else {
+            welcome = function() {
+                console.log('Hello!');
+            }
+        }
+
+        welcome();
+    </script>
+</body>
+</html>

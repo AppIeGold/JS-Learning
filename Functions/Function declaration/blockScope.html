@@ -1,0 +1,27 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Block Scope</title>
+</head>
+<body>
+    <script>
+        "use strict"
+
+        let age = prompt("whats are your age", "");
+
+        if (age >= 18) {
+            function welcome() {
+                console.log("Greatings!");
+            }
+
+            welcome();
+        } else {
+            function welcome() {
+                console.log('hello!');
+            }
+            welcome();
+        }
+
+    </script>
+</body>
+</html>
