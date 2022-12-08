@@ -1,40 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Arrow Function</title>
-    <link rel="stylesheet" href="/css/prism.css">
-    <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-    <h1>Arrow Function</h1>
-    
-    <hr>
-    
-    <h2>Generals</h2>
-    
-    <p>Помимо <b>Function Expression</b> и <b>Function Declaration</b> есть еще один синтаксис, который часто лучше чем <b>FE</b></p>
-    
-    <pre><code class="lang-js">let func = (a, b, ...N) => expression;</code></pre>
+<h1>Arrow Function</h1>
+<hr>
+<h2>Generals</h2>
+<p>Помимо <b>Function Expression</b> и <b>Function Declaration</b> есть еще один синтаксис, который часто лучше чем <b>FE</b></p>
+<pre><code class="lang-js">let func = (a, b, ...N) => expression;</code></pre>
 
-    <p>Выше наблюдается создание функции <code class="lang-js">func</code>, она принимает аргументы, а затем вычисляет <code class="lang-js">expression</code> в правой части с использованием аргументов и возвращает результат. <br><br>
+<p>Выше наблюдается создание функции <code class="lang-js">func</code>, она принимает аргументы, а затем вычисляет <code class="lang-js">expression</code> в правой части с использованием аргументов и возвращает результат. <br><br>
     Ниже тот же самый результат через <b>Function Declaration :</b></p>
     <pre><code class="lang-js">let func = function(a, b, ...N) {
 return expression;
 }; </code></pre>
     
-    <p>Если Аргумент один, то можно убрать скобки:</p>
-    <pre><code class="lang-js">let func = n => n ** 2;
+<p>Если Аргумент один, то можно убрать скобки:</p>
+<pre><code class="lang-js">let func = n => n ** 2;
 
 console.log(func(3)); // = 9</code></pre>
 
-    <p>Если аргументов нет, круглые скобки должны присутствовать, просто они будут пустыми:</p>
-    <pre><code class="lang-js">let func = () => 3 ** 2;
+<p>Если аргументов нет, круглые скобки должны присутствовать, просто они будут пустыми:</p>
+<pre><code class="lang-js">let func = () => 3 ** 2;
 
 console.log(func());</code></pre>
 
-    <p><b>AF</b> можно использовать как <b>FE:</b></p>
-    <pre><code class="lang-js">let age = prompt('what are your old?', '');
+   <p><b>AF</b> можно использовать как <b>FE:</b></p>
+   <pre><code class="lang-js">let age = prompt('what are your old?', '');
 
 let welcome = (age >= 18) ?
     () => console.log('Greetings!') :
@@ -42,8 +29,8 @@ let welcome = (age >= 18) ?
 
 welcome();</code></pre>
 
-    <p>Тот же результат:</p>
-    <pre><code class="lang-js">let age = prompt('What are your old?', '');
+   <p>Тот же результат:</p>
+   <pre><code class="lang-js">let age = prompt('What are your old?', '');
 
 let welcome = (age >= 18) ?
     function() {console.log(Greetings!); } :
@@ -51,10 +38,10 @@ let welcome = (age >= 18) ?
 
 welcome();</code></pre>
         
-    <hr>
+   <hr>
 
-    <h2>Многострочная AF</h2>
-    <p>Стрелочные функции, которые мы видели до этого, были очень простыми. Они брали аргументы слева от <code class="lang-js">=></code> и вычисляли и возвращали выражение справа. Иногда нам нужна более сложная функция, с несколькими выражениями и инструкциями. Это также возможно, нужно лишь заключить их в фигурные скобки. При этом важное отличие – в том, что в таких скобках для возврата значения нужно использовать <code class="lang-js">return</code> (как в обычных функциях).</p>
+   <h2>Многострочная AF</h2>
+   <p>Стрелочные функции, которые мы видели до этого, были очень простыми. Они брали аргументы слева от <code class="lang-js">=></code> и вычисляли и возвращали выражение справа. Иногда нам нужна более сложная функция, с несколькими выражениями и инструкциями. Это также возможно, нужно лишь заключить их в фигурные скобки. При этом важное отличие – в том, что в таких скобках для возврата значения нужно использовать <code class="lang-js">return</code> (как в обычных функциях).</p>
     <pre><code class="lang-js">let func = (a, b) => {
     let result = a ** b;
     return result;
@@ -73,18 +60,3 @@ console.log( sum(3,3));</code></pre>
         </ol>
     </ul>
     <hr>
-    <pre>
-
-    
-
-
-
-
-
-
-
-
-        
-    </pre>
-</body>
-</html>
