@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/css/main.css">
     </head>
     
-    <body>
+
         <h1>Function Expression</h1>
         <hr>
         <p>Данный синтаксис позволяет нам создавать новую функцию в середине любого выражения.</p>
@@ -137,29 +137,4 @@ welcome();</code></pre>
         <li>Функции, объявленные при помощи Function Expression, создаются только когда поток выполнения достигает их.</li>
     </ul>
     <hr>
-    <pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </pre>
-    </body>
 </html>
