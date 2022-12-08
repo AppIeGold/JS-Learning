@@ -89,7 +89,7 @@ let Vasya = function() {
     console.log(`hello ${Vasya}!`);
 };</code></pre>
     Еще одна особенность <b>Function Declaration</b> заключается в том, что я ее область видимости ограничена блоком кода, в котором она располагается. Ниже будут примеры одного и того же результата, полученного разными способами.
-    <pre><code class="lang-js">let age = prompt('What are your old?' '');
+    <pre><code class="lang-js">let age = prompt('What are your old?', '');
 
 if (age >= 18) {
     function welcome() {
@@ -102,7 +102,7 @@ if (age >= 18) {
     }
     welcome();
 }</code></pre>
-    <pre><code class="lang-js">let age = prompt('What are your old?' '');
+    <pre><code class="lang-js">let age = prompt('What are your old?', '');
 
 let welcome;
 
@@ -115,7 +115,7 @@ if (age >= 18) {
         console.log('hello!');
     };
 }</code></pre>
-    <pre><code class="lang-js">let age = prompt('What are your old?' '');
+    <pre><code class="lang-js">let age = prompt('What are your old?', '');
 
 let welcome = (age >= 18) ?
     function() {console.log(Greetings!); } :

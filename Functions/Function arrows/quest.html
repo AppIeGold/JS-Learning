@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Quest</title>
+</head>
+<body>
+    <script>
+        "use strict"
+
+        let ask = (question, yes, no) => {
+            if (confirm(question)) yes();
+            else no();
+        }
+
+        ask("Your confirm?",
+        () => { console.log('yes'); },
+        () => { console.log('no'); } );
+
+    </script>
+</body>
+</html>
