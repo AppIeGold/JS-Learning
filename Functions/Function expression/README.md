@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link href="/css/prism.css" rel="stylesheet">
-        <script src="/prism.js"></script>
-        <!--<link rel="stylesheet" href="/css/rainbow.css" type="text/css">
-        <script src="/rainbow-custom.min.js"></script>-->
-        <link rel="stylesheet" href="/css/main.css">
-    </head>
-    
-
-        <h1>Function Expression</h1>
-        <hr>
-        <p>Данный синтаксис позволяет нам создавать новую функцию в середине любого выражения.</p>
-        <pre><code class="lang-js">sayHI = function() {
-    alert('Hello');
+<h1>Function Expression</h1>
+<hr>
+<p>Данный синтаксис позволяет нам создавать новую функцию в середине любого выражения.</p>
+<pre><code">sayHI = function() {
+alert('Hello');
 };</code></pre>
         <p>Здесь мы видим переменную <code class="lang- js">sayHI</code> получающую значение как новую функцию <code class="lang-js">function() { alert("Hello"); }</code>. Поскольку создание функции происходит в контексте выражения присваивания, это <em>Function Expression</em>.<p>
         <hr>
@@ -28,7 +17,7 @@ hello();
 secondHello();</code></pre>
         Пример Function Declaration
         <pre><code class="lang-js">function hello() {
-    clonsole.log('hello');
+    console.log('hello');
 }</code></pre>
         Обратите внимание, что точка с запятой в конце <b>Function Expression</b> нужна, так как функция объявляется внутри выражения присваения.
         </p>
@@ -137,4 +126,3 @@ welcome();</code></pre>
         <li>Функции, объявленные при помощи Function Expression, создаются только когда поток выполнения достигает их.</li>
     </ul>
     <hr>
-</html>
