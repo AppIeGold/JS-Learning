@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Practic</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/3.2.0/mocha.js"></script>
+        <script>mocha.setup('bdd');</script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/3.5.0/chai.js"></script>
+        <script>let assert = chai.assert;</script>
+    </head> 
     <body>
         <p id="demo"></p>
         <button type="button" onclick="document.getElementById('demo').innerHTML = pow()">click</button>
 
         <script>
             'use strict';
-
+            
                 let a = prompt('input value one', '');
                 let b = prompt('input value one', '');
-                
+                   
                 let pow = (checkNaturalNumber(a) &&
                 checkNaturalNumber(b)) ? () => a ** b : () => false;
-
+            
                 function checkNaturalNumber(num1) {
                     if (num1 % 1 == 0 && num1 >= 1) return true;
-                }                    
+                }
         </script>
+
+        <script src="specifocation.js"></script>
+
+        <div id="mocha"></div>
+
+        <script>mocha.run();</script>
     </body>
 </html>
