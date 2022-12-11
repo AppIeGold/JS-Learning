@@ -6,3 +6,7 @@ body {
     margin-left: 450px;
     margin-right: 450px;
 }
+
+li {
+    margin-bottom: .5rem;
+}
