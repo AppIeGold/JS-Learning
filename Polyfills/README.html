@@ -5,7 +5,6 @@
         <link rel="stylesheet" href="/css/main.css">
         <link rel="stylesheet" href="/css/prism.css">
         <script src="/global JS files/prism.js"></script>
-        <script src="/global JS files/rainbow-custom.min.js"></script>
     </head>
 
     <body>
@@ -21,5 +20,27 @@
                 </ul>
             </li>
         </ol>
+        <hr>
+
+        <h3>Транспиляторы</h3>
+        <p>До 2020 года не было оператора нулевого слияния <b>'??'</b> и если пользователь использует устаревший браузер, то могут быть проблемы с таким кодом <code class="lang-js">height = height ?? 100</code></p>
+
+        <p>Транспилятор проанализирует код и перепишет вот так: <code class="lang-js">height = (!== undefined && height !== null) ? height : 100;</code>.</p>
+        <hr>
+
+        <h3>Полифиллы</h3>
+        <p>Новые возможности языка могут включать не только синтаксические конструкции и операторы, но и встроенные функции.</p>
+        <p>Например, <code class="lang-js">Math.trunc(n)</code> это функция, которая отрезает десятичную часть числа, например <code class="lang-js">Math.trunc(1.23)</code> возвращает <code class="lang-js">1</code>. В устаревшей версии ее нет. И так как тут не идёт речь об изменении синтаксиса, нам просто нужно объявить недостающую функцию.</p>
+        <p>Скрипт, который обновляет/добавляет новые функции, называется <b>полифилл</b>. Он «заполняет» пробел и добавляет недостающие реализации.</p>
+        <p>В этом случае, <b>полифилл</b> для <code class="lang-js">Math.tranc</code> - это скрипт, который его реализует.</p>
+        
+        <pre><code class="lang-js">if (!Math.trunc) { // Если такой функции нет
+            // Реализовать это
+            Math.trunc = function(number) {
+              // Math.ceil и Math.floor Есть даже в древнем движке JS
+              // они будут рассмотрены позже
+              return number < 0 ? Math.ceil(number) : Math.floor(number);
+            };
+          }</code></pre>
     </body>
 </html>
