@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <script src="/global JS files/prism.js"></script>
+        <script src="/global JS files/rainbow-custom.min.js"></script>
+    </head>
+
+    <body>
+        <h2>Babel</h2>
+        <p><b>Babel</b> - это транспилер. ОН переписывает современный JS код в предыдущий стандарт.</p>
+        <p>Есть две части <b>Babel</b>:</p>
+        <ol>
+            <li>Сам транспилер, он переписывает код в старый стандарт. Затем код отправляется на сайт. Современные сборщики типа <a href="http://webpack.github.io/">webpack</a> и <a href="https://brunch.io/">brunch</a> позволяют запускать транспилер автоматически после каждого изменения кода.</li>
+            <li>Полифил - заполняет пробелы и добавляет современные функции. Два интересных хранилища полифилов:
+                <ul>
+                    <li><a href="https://github.com/zloirock/core-js">core js</a> поддерживает много функций, можно подключить только нужные.</li>
+                    <li><a href="https://polyfill.io/v3/">polyfill.io</a> сервис, который автоматические создает скрипт с полифилом, в зависимости от необходимых функций и браузера пользователя.</li>                
+                </ul>
+            </li>
+        </ol>
+    </body>
+</html>
