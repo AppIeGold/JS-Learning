@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <script src="/global JS files/prism.js"></script>
+    </head>
+
+    <body>
+        <script>
+            let fruit = prompt('which fruit put to bag?', '');
+            let sum = +prompt('summary', '');
+            let milk = 5;
+
+            let bag = {
+                fruit: [fruit + ' apple'],
+                sum: [sum]
+            };
+
+            bag['milk'] = [milk + ' kinder'];
+
+            console.log(bag.fruit);
+            console.log(bag.sum);
+            console.log(bag.milk);
+            console.log(bag);
+
+        </script>
+    </body>
+</html>

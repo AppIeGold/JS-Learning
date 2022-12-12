@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/css/main.css">
+        <link rel="stylesheet" href="/css/prism.css">
+        <script src="/global JS files/prism.js"></script>
+        <title>Объекты</title>
+    </head>
+
+    <body>
+        <script>
+            let user = {
+                name: 'John',
+                age: 30,
+                'two words': 'work?'
+            };
+
+            delete user.age;
+            delete user['two words'];
+
+            user['likes birds'] = true;
+            user.age = 31;
+            user.pass = 'qwerty';
+
+            console.log(user.name);
+            console.log(user['likes birds']);
+            console.log(user);
+        </script>
+    </body>
