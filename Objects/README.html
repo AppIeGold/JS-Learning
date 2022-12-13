@@ -197,6 +197,160 @@
             obj.__proto__ = 5; // присвоим число
             alert(obj.__proto__); // [object Object], значение - это объект, т.е. не то, что мы ожидали)
         </code></pre>
+        <hr>
 
+        <h2>Проверка существования свойства, оператор in</h2>
+
+        <p>В js можно получить доступ к свойству объекта, даже если этого свойства не существует. Просто мы получим <code class="lang-js">undefined</code>.</p>
+
+        <pre><code class="lang-js">
+            let user = {};
+
+            console.log(user.noSuchProperty === undefined); // undefined
+        </code></pre>
+
+        <p>Для этого есть специальный оператор <code class="lang-js">in</code>. Его синтаксис: <code class="lang-js">'key' in object</code>.</p>
+
+        <pre><code class="lang-js">
+            let user = {name: 'Vasya', age: 25};
+
+            console.log('age' in user); // true
+            console.log('name' in user); // true
+            console.log('weight' in user); // false
+        </code></pre>
+
+        <p>Если мы опускаем кавычки слева от <code class="lang-js">in</code>, это значит, что мы указываем переменную, в которой находится имя свойства.</p>
+        
+        <pre><code class="lang-js">
+            let user = { age: 30 };
+
+            let key = "age";
+            alert( key in user ); // true, имя свойства было взято из переменной key
+        </code></pre>
+
+        <p>В целом, можно всегда использовать способ с <code class="lang-js">undefined</code>, но есть случай, когда он не подойдет. Это когда свойство существует, но содержит значение <code class="lang-js">undefined</code>:</p>
+
+        <pre><code class="lang-js">
+            let obj = {
+                test: undefined
+            };
+
+            console.log(obj.test); // undefined
+            console.log('test in obj'); // true
+        </code></pre>
+        <hr>
+
+        <h2>Цикл for in</h2>
+
+        <p>Для перебора всех свойств объекта используется цикл <b>for in</b>.</p>
+
+        <pre><code class="lang-js">
+            for (key in object) {
+                // тело цикла выполняется для каждого свойства объекта
+            }
+        </code></pre>
+
+        <p></p>
+
+        <pre><code class="lang-js">
+            let user = {
+                name: 'Vasya',
+                age: 25,
+                isAdmin: true
+            };
+            
+            for (let prop in user) {
+                console.log(prop); // ключи
+                console.log(user[prop]); // значения ключей
+            }
+        </code></pre>
+        <hr>
+
+        <h3>Упорядочение свойств объекта</h3>
+        <p>Если мы будем в цикле перебирать все свойства ообъекта, получим ли мы их в том же порядке, в котором мы их добавляли? можем ли мы на это рассчитывать?</p>
+        <p>Свойства с целочисленными ключами сортируются по возрастанию, остальные располагаются в порядке создания.</p>
+
+        <pre><code class="lang-js">
+            let codes = {
+                '7': 'Россия',
+                '41': 'Швейцария',
+                '44': 'Великобритания',
+                '1': 'США',
+            };
+
+            for (let code in codes) {
+                console.log(code);
+                console.log(codes[code]);
+            }
+        </code></pre>
+
+        <p>При запуске кода видно, что коды идут в порядке возрастания, так как они являются целыми числами.</p>
+        <h4 style="margin-bottom: -10px;">Целочисленное свойство</h4>
+        <p> Это строка, которая может быть преобразована в целое число и обратно без изменений. То есть, <code class="lang-js">'49'</code> это целочисленное имя свойстваЮ потому что если его преобразовать в тип <code class="lang-js">number</code>, а затем обратно в <code class="lang-js">string</code>, то оно не изменится. А вот например <code class="lang-js">'+49'</code> или <code class="lang-js">'1.2'</code> таковыми не являются.</p>
+
+        <pre><code class="lang-js">
+            console.log( String(Math.trunc(Number('49'))) ); // '49' - целочисленное
+            console.log( String(Math.trunc(Number('+49'))) ); // '49' - не целочисленное
+            console.log( String(Math.trunc(Number('1.2'))) ); // '1' - не целочисленное
+        </code></pre>
+
+        <p>Если ключи не целочисленные, то они перебираются в поряке создания, например:</p>
+
+        <pre><code class="lang-js">
+            let user = {
+                name: 'Vasya',
+                age: 35,
+            };
+
+            user.isAdmin = true;
+
+            for (let prop in user) {
+                console.log(prop);
+            }
+        </code></pre>
+
+        <p>Таким образом, чтобы решить нашу проблему с телефонными кодами, мы можем схитрить, сделав коды не целочисленными свойствами. Добавления знака <code class="lang-js">'+'</code> перед каждым кодом будет достаточно. </p>
+        
+        <pre><code class="lang-js">
+            let codes = {
+                '+7': 'Россия',
+                '+41': 'Швейцария',
+                '+44': 'Великобритания',
+                '+1': 'США',
+            };
+
+            for (let code in codes) {
+                console.log(code);
+                console.log(codes[code]);
+            } // 7, 41, 44, 1
+        </code></pre>
+        <hr>
+
+        <h2>Итог</h2>
+        <p>Объекты - ассоциативные массивы с рядом дополнительных возможностей. Они хранят свойства (пары: ключ-название), где:</p>
+        <ul>   
+            <li>Ключи свойств должны быть строками или символами (обычно строками)</li>
+            <li>Значения могут быть любого типа.</li>
+        </ul>
+        <p>Чтобы получить доступ к свойству, мы можем использовать:</p>
+        <ul>
+            <li>Запись через точку: <code class="lang-js">obj.property</code>.</li>
+            <li>Квадратные скобки: <code class="lang-js">obj['property']</code>. А если мы хотим взять ключ из переменной: <code class="lang-js">obj[property]</code>. </li>
+        </ul>
+        <p>Дополнительные операторы:</p>
+        <ul>
+            <li>Удаление свойства: <code class="lang-js">delete obj.prop</code>.</li>
+            <li>Проверка существования свойства: <code class="lang-js">'key' in obj</code>.</li>
+            <li>Перебор свойств объекта: цикл for <code class="lang-js">for (let key in obj)</code>.</li>
+        </ul>
+        <p>То, что изучалось в этой главе, называется простым объектом <b>'plain object'</b> или просто  <code class="lang-js">object</code>.</p>
+        <p>В js есть много других типов объектов:</p>
+        <ul>
+            <li> <code class="lang-js">Array</code> для хранения упорядоченных коллекций данных.</li>
+            <li> <code class="lang-js">Date</code> для хранения информации о дате и времени.</li>
+            <li> <code class="lang-js">Error</code> для хранения информации об ошибке.</li>
+            <li> ...И тд.</li>
+        </ul>
+        <p>У них есть свои особенности, которые мы изучим позже. Иногда люди говорят что-то вроде «тип данных Array» или «тип данных Date», но формально они не являются отдельными типами, а относятся к типу данных Object. Они лишь расширяют его различными способами.</p>
     </body>
 </html>
