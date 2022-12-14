@@ -1,0 +1,21 @@
+{
+  "name": "task2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "task2.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mocha": "^10.2.0"
+  },
+  "dependencies": {
+    "chai": "^4.3.7"
+  }
+}
