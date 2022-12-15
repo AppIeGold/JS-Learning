@@ -352,5 +352,125 @@
             <li> ...И тд.</li>
         </ul>
         <p>У них есть свои особенности, которые мы изучим позже. Иногда люди говорят что-то вроде «тип данных Array» или «тип данных Date», но формально они не являются отдельными типами, а относятся к типу данных Object. Они лишь расширяют его различными способами.</p>
+        <hr>
+
+        <h1>Копирование объектов и ссылки</h1>
+        <p>Одно из фундаментальных отличий объектов от примитивов заключается в том, что объекты хранятся и копируются по ссылке, а примитивы, как целое значение, у них создается копия.</p>
+
+        <h2>Клонирование и объединение, Object.assign</h2>
+        <p>Как правило, зачастую хватает копирования по ссылке, но если сли надо сделать копию объекта, то нужно создать новый объект и воспроизвести структуру существующего, перебрав его свойства и скопировав их на примитивном уровне.</p>
+
+        <pre><code class="lang-js">
+            let user = {
+                name: 'Vasya',
+                age: 30
+            };
+
+            let clone = {};
+
+            for (let key in user) {
+                clone[key] = user[key];
+            }
+
+            clone.name = 'Pete';
+
+            console.log(user.name);
+        </code></pre>
+
+        <P>Или можно использовать метод <b>Object.assign</b></P>
+
+        <pre><code class="lang-js">
+            Object.assign(dest, [src1, src2, src3...])
+        </code></pre>
+
+        <ul>
+            <li>Первый аргумент <code class="lang-js">dest</code> - целевой объект.</li>
+            <li>Остальные аргументы<code class="lang-js">src1, ...,srcN</code> являются исходными объектами</li>
+            <li>Метод копирует свойства всех исходных объектов<code class="lang-js">src1, ..., srcN</code>в целевой объект<code class="lang-js">dest</code>. Другими словами, свойства всех аргументов, начиная со второго, копируются в первый объект.</li>
+            <li>Возвращает объект<code class="lang-js">dest</code>.</li>
+        </ul>
+
+        <p>Можно использовать его для объединения нескольких объектов в один:</p>
+
+        <pre><code class="lang-js">
+            let user = {name: 'John'};
+
+            let permission1 = {canView: true};
+            let permission2 = {canEdit: true};
+
+            Object.assign(user, permission1, permission2);
+        </code></pre>
+        
+        <p>Если скопированное имя свойства уже существует, оно будет перезаписано:</p>
+
+        <pre><code class="lang-js">
+            let user = {name: 'Vasya'};
+
+            Object.assign(user, {name: 'John'});
+
+            console.log(user.name); // 'John'
+        </code></pre>
+
+        <p>Мы также можем использовать <code class="lang-js">Object.assign</code> для замены цикла<code class="lang-js">for..in</code> для простого клонирования:</p>
+        
+        <pre><code class="lang-js">
+            let user = {
+                name: 'Vasya',
+                age: 30
+            }
+
+            let clone = Object.assign({}, user);
+        </code></pre>
+
+        <p>Он копирует все свойства <code class="lang-js">user</code> в пустой объект и возвращает его.</p>
+        <hr>
+
+        <h2>Вложенное клонирование</h2>
+        <p>Свойства могут быть ссылками на другие объекты</p>
+
+        <pre><code class="lang-js">
+            let user = {
+                name: 'Vasya',
+                sizes: {
+                    height: 182,
+                    width: 50
+                }
+            };
+
+            console.log(user.sizes.height);
+        </code></pre>
+        
+
+        <p>Недостаточно будет просто скопировать <code class="lang-js">Clone.sizes = user.sizes,</code>, потму что <code class="lang-js">user.sizes</code> - это объект, он будет скопирован по ссылке. Таким образом, <code class="lang-js">clone</code> и <code class="lang-js">user</code> будут иметь общий объект <code class="lang-js">sizes</code>.</p>
+
+        <pre><code class="lang-js">
+            let user = {
+                name: "John",
+                sizes: {
+                  height: 182,
+                  width: 50
+                }
+              };
+              
+              let clone = Object.assign({}, user);
+              
+              alert( user.sizes === clone.sizes ); // true, тот же объект
+              
+              // user и clone обладают общим свойством sizes
+              user.sizes.width++;       // изменяем свойства в первом объекте
+              alert(clone.sizes.width); // 51, видим результат в другом
+        </code></pre>
+
+        <p>Чтобы исправить это, мы должны использовать цикл клонирования, который проверяет каждое значение <code class="lang-js">user[key]</code> и, если это объект, тогда также копирует его структуру. Это называется <b>глубоким клонированием</b>.</p>
+        
+        <p>Его можно реализовать используя рекурсию. Или, чтобы не изобретать велосипел заново, возьмите готовую реализацию, например <a href="https://lodash.com/docs#cloneDeep">_.cloneDeep(value)</a> из библиотеки js <a href="https://lodash.com/">lodash</a>.</p>
+        <hr>
+
+        <h2>Итог</h2>
+        <p>Объекты присваиваются и копируются по ссылке. Другими словами, переменная хранит не значение объекта, а ссылку (адрес в памяти) на это значение. Таким образом, копирование такой переменной или передача ее в качестве аргумента функции копирует эту ссылку, а не сам объект.</p>
+
+        <p>Все операции с использованием скопированных ссылок (например, добавление/удаление свойств) выполняются с одним и тем же объектом.</p>
+
+        <p>Чтобы создать реальную копию, мы можем использовать <code class="lang-js">Object.assign</code> для так называемой поверхностной копии (вложенные объекты копируются по ссылке) или функцию глубокого клонирования, такую как <a href="https://lodash.com/docs#cloneDeep">_.cloneDeep(value)</a>.</p>
     </body>
 </html>
