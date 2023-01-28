@@ -15,6 +15,13 @@ for (let key in fruits) {
     console.log(fruits[key]);
 }
 
-let style = ['jazz', 'bluz'];
+console.log('\n');
 
-style.push('rock-n-roll');
+let matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+];
+
+console.log(matrix[1][1]);
+console.log(matrix[0][2]);
